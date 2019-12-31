@@ -1,0 +1,12 @@
+# ---------------------------------------
+# defaults file for aws-iam-authenticator
+# ---------------------------------------
+aws_iam_authenticator_checksum: "sha256:cc35059999bad461d463141132a0e81906da6c23953ccdac59629bb532c49c83"
+# Where to install binary
+aws_iam_authenticator_bin_directory: "/usr/local/bin"
+# TMP Directory
+tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+# Owner of binary
+owner: "root"
+# Group of binary
+group: "root"

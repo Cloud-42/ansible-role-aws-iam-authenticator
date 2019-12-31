@@ -1,0 +1,21 @@
+---
+# tasks file for aws-iam-authenticator
+- name: Download aws-iam-authenticator 
+  get_url:
+    url: "https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator"
+    checksum: "{{ aws_iam_authenticator_checksum }}"
+    dest: "{{ tmp_directory }}"
+  tags:
+    - authenticator
+
+- name: Copy to $PATH directory.
+  copy:
+    src: "{{ tmp_directory }}/aws-iam-authenticator"
+    dest: "{{ aws_iam_authenticator_bin_directory }}/"
+    mode: 0755
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    remote_src: yes
+  with_items:
+    - authenticator
+
