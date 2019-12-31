@@ -3,13 +3,20 @@ Role Name
 
 Installs aws-iam-authenticator used for IAM auth with EKS.
 
-Requirements
-------------
+Description
+-----------
 
-Ansible installed.
+Basic role to download and install the aws-iam-authenticator.
 
 Role Variables
 --------------
+
+| Variable | Meaning |
+| :------- | :----- |
+| aws\_iam\_authenticator\_checksum | Binary checksum |
+| tmp\_directory | TMP directory where binary is downloaded to |
+| owner | Owner |
+| group | Group to own file |
 
 Example Playbook
 ----------------
